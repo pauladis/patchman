@@ -1,1 +1,1 @@
-web: gunicorn teste_heroku.wsgi --log-file -
+web: gunicorn patchman_twitter.wsgi --log-file -
