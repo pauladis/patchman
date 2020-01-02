@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+<h1>HOMEPAGE</h1>
+
+    <a href="{% url 'new_post' %}" > <span class="fa fa-plus" aria-hidden="true"></span> New Post </a>
+
+    <div class="container">
+        {% csrf_token %}
+
+        {% for p in posts %}
+            {% if p.visible == True %}
+                <div class="jumbotron">
+                    <div class="row">
+                        <ul class="list-group">
+                            <div class="col-sm">
+                                <p> Title = {{ p.title }}</p>
+                                <p> Content = {{ p.content|truncatechars:300 }} <a href="{% url 'reply' p.id %}"> See More </a></p>
+                                <p> Date = {{ p.date }} and author = {{ p.author }}</p>
+                            </div>
+                        </ul>
+                    </div>
+                    {% if user.id == p.author_id %}
+                        <a href="{% url 'edit' p.id %}">  <span class="fa fa-edit" aria-hidden="true"></span> </a>
+                        <a href="{% url 'delete' p.id %}"> <span class="fa fa-trash" aria-hidden="true"></span> </a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <br>
+    </div>
+
+{% endblock %}

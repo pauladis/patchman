@@ -1,0 +1,52 @@
+{% load staticfiles %}
+{% load bootstrap %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="{% static 'twitter_bootstrap/js/transition.js' %}"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'stick-footer.css' %}">
+    <title>Patchman twitter</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl">
+                {% if user.is_authenticated %}
+                    <p> Hello {{ user }}</p>
+            </div>
+                    <div class="col-l">
+                        <a href="{% url 'approve' %}" class="al"> <span class="badge badge-blue">Approve pending replys</span> </a>
+                        <a href="{% url 'logout'  %}"> <span class="badge badge-dark">Logout</span> </a>
+                    </div>
+                {% else %}
+                    <div class="col-sm">
+                        <a href="{% url 'login' %}"> LOGIN </a>
+                    </div>
+                {% endif %}
+            <div class="col-sm">
+                <a href="{% url 'homepage' %}"> Home</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {% block main %}
+        {% endblock %}
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Patchman test</span>
+        </div>
+    </footer>
+
+</body>
+</html>

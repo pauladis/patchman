@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+    <p> Please finish your register </p>
+
+     <form method="post">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary"> Finish </button>
+    </form>
+
+{% endblock %}

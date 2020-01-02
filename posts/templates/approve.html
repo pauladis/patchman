@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load bootstrap %}
+
+
+{% block main %}
+
+    <form  method="POST">
+        {% csrf_token %}
+        <div class="conteiner">
+            <h3>Check the approved replys</h3>
+            {% for r in replys %}
+                {% if r.approved == None %}
+                    {{ r }}
+                    <input type = "checkbox" id={{ r.id}} name= {{r.id}} >
+                {% endif %}
+            {% endfor %}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary"> Save </button>
+    </form>
+
+{% endblock %}

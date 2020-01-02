@@ -1,0 +1,14 @@
+{% extends 'homepage.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+    <p> Hello {{ user }}</p>
+    <p> What on your mind? </p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary"> Post it </button>
+    </form>
+
+{% endblock %}

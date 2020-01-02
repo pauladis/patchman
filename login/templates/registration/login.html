@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% load bootstrap %}
+
+{% block main %}
+
+    {% if not user.is_authenticated %}
+
+        <h1> Please login or register</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-success"> Log in </button>
+        </form>
+        <br>
+        <form method="get" action="register">
+            <button type="submit" class="btn btn-primary"> Register </button>
+        </form>
+    {% endif %}
+
+{% endblock %}
