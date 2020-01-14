@@ -82,6 +82,6 @@ def approve(request):
             else:
                 r.approved = False
             r.save()
-            return redirect('homepage')
+        return redirect('homepage')
     dict = {'replys':replys}
     return render(request, 'approve.html', dict)
