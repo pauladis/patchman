@@ -1,15 +1,13 @@
 from django.urls import path
-from .views import homepage, new_post, reply, delete, edit, approve
+from .views import homepageView, new_postView, replyView, deleteView, delete_replyView, editView, approveView
 
-from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
-    path('', homepage, name='homepage'),
-    path('new/', new_post, name='new_post'),
-    path('reply/<int:id>', reply, name='reply'),
-    path('delete/<int:id>', delete, name='delete'),
-    path('delete_reply/<int:id>', delete, name='delete_reply'),
-    path('edit/<int:id>', edit, name='edit'),
-    path('approve/', approve, name='approve'),
-    #path('approveReply/', approveReply, name='approveReply')
+    path('', homepageView.as_view(), name='homepage'),
+    path('new/', new_postView.as_view(), name='new_post'),
+    path('reply/<int:id>', replyView.as_view(), name='reply'),
+    path('delete/<int:id>', deleteView.as_view(), name='delete'),
+    path('delete_reply/<int:id>', delete_replyView.as_view(), name='delete_reply'),
+    path('edit/<int:id>', editView.as_view(), name='edit'),
+    path('approve/', approveView.as_view(), name='approve'),
     ]
