@@ -4,7 +4,7 @@ dj-static==0.0.6
 Django==2.2.1
 django-bootstrap-form==3.4
 django-twitter-bootstrap==3.3.0
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 Jinja2==2.10.1
 Pillow==6.2.1
 python-dateutil==2.8.0
